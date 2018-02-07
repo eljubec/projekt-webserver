@@ -3,6 +3,7 @@ const chalk = require('chalk');
 const hbs = require('hbs');
 const fs = require('fs');
 
+const port = process.env.PORT || 3000;
 let app = express();
 
 hbs.registerPartials(__dirname + '/views/partials')
@@ -54,6 +55,6 @@ app.get('/bad', (req, res) => {
         error: 'unable to fulfill the request'
     });
 });
-app.listen(3000, () => {
-    console.log(chalk.yellow('Server is up on port 3000'));
+app.listen(port, () => {
+    console.log(chalk.yellow(`Server is up on port ${port}`));
 });
